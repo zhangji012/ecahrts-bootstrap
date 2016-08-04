@@ -1,4 +1,5 @@
 $(document).ready(function(){
+//	echarts.js报echarts is not defined,使用定时器解决
 	var myTimeout_vzt = setTimeout(function to(){
 		if(typeof echarts == "undefined" ){
 			myTimeout_vzt = setTimeout(to,1);
@@ -10,6 +11,7 @@ $(document).ready(function(){
 	
 
 	function init_vzt(){
+		//页面初始化时#select_ipt input获取总裁、data-id
 		var defaultOrgName = BI.VisibilityOrg.getVisibilityOrgDataById(BI.CONTEXT.getCurrentUserOrgId()).defaultChoosedOrgName;
 		var defaultOrgId = BI.VisibilityOrg.getVisibilityOrgDataById(BI.CONTEXT.getCurrentUserOrgId()).defaultChoosedOrgId;
 		$("#viem-zt #select_ipt input").val(defaultOrgName);
@@ -17,7 +19,6 @@ $(document).ready(function(){
 		var rootNodeId = '2010000004405665637,2010000004405662475,2010000004405662474,7046000008701129867';
 		var parentOrgIdList = BI.VisibilityOrg.getVisibilityOrgDataById(BI.CONTEXT.getCurrentUserOrgId()).parentOrgIdList;
 		var orgMinLevel = 5;
-		
 		var node = parentOrgIdList;//要展开的节点
 		var url_vzt = '../organization/loadOrganizationTree.action?organizationVo.maxLevel=1&organizationVo.defaultChoosedOrgId='+defaultOrgId;
 		function strURL_vzt(){
@@ -35,6 +36,7 @@ $(document).ready(function(){
 			}
 		}
 		strURL_vzt();
+		//页面初始化时下拉菜单添加总裁
 		$.ajax({
 			url:url_vzt,
 			type: "get",
@@ -57,8 +59,8 @@ $(document).ready(function(){
 	        	alert("出错了");
 	        }
 		});
-		/* 时间日历  模块 开始  */
 		
+		/* 时间日历  模块 开始  */
 		window.myDatePluginInit("my-date-plugin-vzt", "my-date-plugin-sup-vzt");
 		var userDate_vzt = new Date();
 		//处理时间的方法。
@@ -85,13 +87,10 @@ $(document).ready(function(){
 	    
 	    /* 点击 图标 展示和隐藏子节点 */
 	    function clickIcon_vzt(){
-	    	
 	    	var onoff = false;
 	    	node = $(this).parent().attr("id");
-	    	
 	    	url_vzt = '../organization/loadOrganizationTree.action?organizationVo.maxLevel=1&organizationVo.defaultChoosedOrgId='+defaultOrgId;
 	    	strURL_vzt();
-	    	//$(this).siblings(".slt-box").empty();
 	    	if($(this).html()=="+"){
 	    		//再次点击先去判断  是否发送过ajax请求
 	    		if($(this).attr("data-ajax")=="open"){
@@ -109,7 +108,7 @@ $(document).ready(function(){
 				        		if(i==datas.length-1){    //某条分支下的  最后一个节点
 					        		strclass = "last-line";
 					        	}
-				        		
+				        		//添加新的节点
 				        		$("#viem-zt #"+node).append('<div class="slt-box" >' +
 										 '<div class='+strclass+'></div>' +
 										 '<div class="list-box" >' +
@@ -138,7 +137,6 @@ $(document).ready(function(){
 	    		$(this).attr("data-ajax","open");    //发送ajax请求后  给自己加上一个标记  代表已经请求过了
 	            $(this).siblings(".slt-box").show();
 	            $(this).html("-");
-
 	            initline_vzt();
 	           
 	        }else{
@@ -147,15 +145,12 @@ $(document).ready(function(){
 	            initline_vzt();
 	        }
 	    	
-	    	$("#viem-zt .slt-icon").unbind('click').on("click", clickIcon_vzt);
+	    	$("#viem-zt .slt-icon").unbind('click').on("click", clickIcon_vzt);  //点击失效，解绑后再绑定click事件解决
 	        initline_vzt();
 	    }
 	    $("#viem-zt .slt-icon").unbind('click').on("click", clickIcon_vzt);
 	    
 	    initline_vzt();
-	    
-	  
-	    
 
 	    /* 点击确定按钮  */
 	    $("#viem-zt #slt_btnok").on("click", function () {
@@ -164,10 +159,7 @@ $(document).ready(function(){
 	        select_input_vzt();
 	    });
 	    
-	    
-	    
-	    /*点击空白处下拉菜单消失*/
-
+	    /*点击空白处下拉菜单消失  阻止冒泡*/
 	    $("#viem-zt #select_div .form-group").on("click", function (e) {
 	    	 e?e.stopPropagation():event.cancelBubble = true;
 	    });
@@ -175,7 +167,6 @@ $(document).ready(function(){
 	        $("#viem-zt #select-tree").fadeOut();
 	    });
 	    //	点击取消按钮恢复初始值
-	    
 		$('#viem-zt #slt-cancel').click(function(){
 			$("#viem-zt #select_ipt input").val("总裁");
 			$("#viem-zt #select-tree").hide();
@@ -199,7 +190,6 @@ $(document).ready(function(){
 			$("#viem-zt #zt_table").empty();
 		});
 		
-		
 		//计算被选中的radio 把值填充到 input 和div 里面去
 	    function select_input_vzt(){
 	        var html ="";
@@ -209,7 +199,7 @@ $(document).ready(function(){
 	        $("#viem-zt #select_ipt input").val(html);    //截取最后一个,
 	        
 	    }
-	    //获取下拉 树形菜单 选中按钮的值 data-id
+	    //input显示框获取下拉 树形菜单 选中按钮的值 data-id
 	    function getChecked_vzt(){
 	    	var data_id =$("#viem-zt #select_div input[type='radio']:checked").attr("data-id");
 	    	$("#viem-zt #select_ipt input").attr("data-id",data_id);
@@ -235,24 +225,25 @@ $(document).ready(function(){
 		
 	    /* echarts 绘制图表  模块  开始 */
 	    //获取图表  初始化
-	    var myChartzs_vzt = echarts.init(document.getElementById('zt-viemzs'));
-	    var myChartqk_vzt = echarts.init(document.getElementById('zt-viemqk'));
-	    var myChart1_vzt = echarts.init(document.getElementById('zt-viem1'));
-	    var myChart2_vzt = echarts.init(document.getElementById('zt-viem2'));
-	    var myChart3_vzt = echarts.init(document.getElementById('zt-viem3'));
+	    var myChartzs_vzt = echarts.init(document.getElementById('zt-viemzs')); //图1 各岗位离职走势
+	    var myChartqk_vzt = echarts.init(document.getElementById('zt-viemqk')); //图2 各岗位离职情况
+	    var myChart1_vzt = echarts.init(document.getElementById('zt-viem1'));   //点击图2生成图3 离职走势
+	    var myChart2_vzt = echarts.init(document.getElementById('zt-viem2'));   //点击图2生成图4 各工龄段在职分布
+	    var myChart3_vzt = echarts.init(document.getElementById('zt-viem3'));   //点击图2生成图5 各工龄段离职情况
+	    //图表公用的地区、日期、data-id
 	    var $area = '';
-	    var data_vmd = '';
-	    var orgId_vmd = '';
-	    /*点击查询 按钮  数据展示,点击之后0.2秒才可以再次请求数据 */
-		$('#viem-zt .btn-div .btn-warning').click(fun);
-		var fun = function bClick(){
+	    var data_vzt = '';
+	    var orgId_vzt = '';
+	    /*点击查询 按钮  数据展示,点击之后0.2秒才可以再次请求数据，防止短时间高频点击对服务器产生负担 */
+		$('#viem-zt .btn-div .btn-warning').click(funzt);
+		var funzt = function bClick(){
 			 $('#viem-zt .btn-div .btn-warning').unbind('click');
 			timer = setTimeout(function(){
-				 $('#viem-zt .btn-div .btn-warning').click(fun);
+				 $('#viem-zt .btn-div .btn-warning').click(funzt);
 			},200);
 
-	    	data_vzt = $("#viem-zt #my-date-plugin-vzt").val(); /*查询日期*/
-			orgId_vzt = $("#viem-zt #select_ipt input").attr("data-id");
+	    	data_vzt = $("#viem-zt #my-date-plugin-vzt").val(); /*共用日期*/
+			orgId_vzt = $("#viem-zt #select_ipt input").attr("data-id");/*共用data-id*/
 			var bline_vzt = "ZT";
 			var position_vzt = "";			
 	    	$area = $('#viem-zt #select_ipt input').val();   //选择的地区
@@ -277,8 +268,8 @@ $(document).ready(function(){
 				/* 表格 填充数据  开始  */
 				var tabData_vzt = data.viewDatas.rankInfo;
 				for(obj in tabData_vzt){
-					if(tabData_vzt[obj] == null){
-						tabData_vzt[obj]="--";
+					if(tabData_vzt[obj] == null){ //无数据时替换为--
+						tabData_vzt[obj]="--";  
 					}
 				}
 				var tabhtml_vzt ="";
@@ -315,7 +306,7 @@ $(document).ready(function(){
 				var yearOne2_vzt = data_vzt.substr(0,4) + "年";
 				var lossOne1_vzt = [];     /*图1 去年离职率*/
 				var lossOne2_vzt = [];     /*图1  今年离职率*/
-				/*测试数据  数据缺失情况*/ 
+				/*测试数据  数据缺失少于12个月情况*/ 
 				var dataOnelg_vzt = data.viewDatas.lossTrend.length;
 				if(dataOnelg_vzt<12){   
 					for(var i=0;i<dataOnelg_vzt;i++){
@@ -425,16 +416,16 @@ $(document).ready(function(){
 				
 				//第二张图--柱状图
 				var dataTwolg_vzt = data.viewDatas.lossPosition.length;
-				var yearTwo2_vzt = (data_vzt.substr(0,4)-1)  + "年" + data_vzt.substr(5,6) + '月';;
-				var yearTwo3_vzt = data_vzt.substr(0,4) + "年" + data_vzt.substr(5,6) + '月';
+				var yearTwo2_vzt = (data_vzt.substr(0,4)-1)  + "年" + data_vzt.substr(5,6) + '月'; //去年
+				var yearTwo3_vzt = data_vzt.substr(0,4) + "年" + data_vzt.substr(5,6) + '月';      //今年
 				var compltTwo_vzt = [];  /*图2 去年数据*/
 				var compltTwo2_vzt = []; /*图2 今年数据*/
 				var arrcompltTwo_vzt =['文职','接送货员','理货员','快递员','快递理货员','司机','管理人员','其他岗位'];
 				for(var k =0;k<arrcompltTwo_vzt.length;k++){
 					for(var i=0;i<dataTwolg_vzt;i++){
 						if(arrcompltTwo_vzt[k]==data.viewDatas.lossPosition[i].levelName){
-							compltTwo_vzt.push(data.viewDatas.lossPosition[i].compltValue);
-							compltTwo2_vzt.push(data.viewDatas.lossPosition[i].histValue);
+							compltTwo_vzt.push(data.viewDatas.lossPosition[i].histValue);
+							compltTwo2_vzt.push(data.viewDatas.lossPosition[i].compltValue);
 						}
 					}		
 				}
@@ -501,17 +492,17 @@ $(document).ready(function(){
 			        ]				
 				})
 				
-				myChartzs_vzt.resize();
+				myChartzs_vzt.resize();   //生成图表时图表自适应
 	    		myChartqk_vzt.resize();
 			})
 
 	    }
-		$('#viem-zt .btn-div .btn-warning').click(fun);	
+		$('#viem-zt .btn-div .btn-warning').click(funzt);	
 		
 		/*点击图表生成3、4、5三张图,0.2秒后可以点击不同的柱状图请求数据*/
-	    var time_vzt = '';
-		var onoff_vzt = true;
-		var nameNext_vzt = '';		
+	    var time_vzt = '';      //定时器
+		var onoff_vzt = true;   //开关，点击后0.2s切换
+		var nameNext_vzt = '';	//点击第二张图，获取柱体的name,防止重复点击时重复加载	
 	    myChartqk_vzt.on('click',function(params){ 
 	    	$('#viem-zt #zt-viem-btmain').show();
 	    	/*判断点击不同柱状并且间隔0.2可以获取后台数据*/
@@ -645,11 +636,11 @@ $(document).ready(function(){
 		    	        myChart1_vzt.setOption(option1_vzt);  
 						var lossFour1_vzt = [];     //图4 去年在职
 						var lossFour2_vzt = [];     //图4  今年的在职
-						var lossFive1_vzt = [];     //图5 去年在职
-						var lossFive2_vzt = [];     //图5 今年的在职
+						var lossFive1_vzt = [];     //图5 去年离职
+						var lossFive2_vzt = [];     //图5 今年离职
 						var dataThreeX_vzt = [];        //X轴坐标
 						var dataThreelg2_vzt = data.viewDatas.workAgeInfo.length;
-						for(var i=0;i<dataThreelg2_vzt/2;i++){
+						for(var i=0;i<dataThreelg2_vzt/2;i++){  
 							lossFour1_vzt.push(data.viewDatas.workAgeInfo[i].pesnAgeRate);
 							lossFive1_vzt.push(data.viewDatas.workAgeInfo[i].leavpAgeRate);
 						}
