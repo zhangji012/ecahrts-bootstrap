@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>项目完整代码</title>
+    <link rel="stylesheet" type="text/css" href="../styles/hrdatas/bootstrap.min.css"/>
+    <link href="../styles/hrdatas/viewzt.css" rel="stylesheet" >
+</head> 
+<body>
+<div id="viem-zt">
+<!-- 查询模块 开始 -->
+<div id="select-warper">
+	<div id="select_div">
+        <div class="slt-left"><span>条件查询：</span><span>时间选择：</span>
+        	<div id="my-date-plugin-sup-vzt">
+        		<input type="text" class="form-control form_datetime" name="my-date-plugin-vzt" id="my-date-plugin-vzt" value="" data-date-format="yyyy-mm" autocomplete="off">
+        	</div>
+        </div>
+        <!-- 组织选择 下拉树形菜单  开始  -->
+        <div class="slt-span"><span>组织选择：</span></div>
+        <div class="form-group">
+            <div class="input-group" id="select_ipt">
+                <input type="text" class="form-control" disabled value="" data-id="">
+                <div class="input-group-addon"><i class="glyphicon glyphicon-triangle-bottom"></i></div>
+            </div>
+            <div id="select-tree">
+                <div id="slttree-zt">
+                	<!-- ajax 动态填充 数据   下拉选择框 树形菜单  -->
+                </div>
+                <div class="slt-btndiv">
+                    <button id="slt_btnok" class="btn btn-warning">确定</button>
+                    <button class="btn" id="slt-cancel">取消</button>
+                </div>
+            </div>
+        </div>
+        <!-- 组织选择 下拉树形菜单  结束  -->
+        <div class="btn-div">
+            <button class="btn reset">重置</button>
+            <a href="#" class="btn btn-warning">查询</a>
+        </div>
+   	</div>
+    <table id="zt_table" class="table table-bordered">
+        <!-- ajax 动态填充 数据  -->
+        
+    </table>
+    <table class="table table-bordered zt-table">
+    	<tr>
+            <td>部门负责人</td>
+            <td></td>
+            <td>人数</td>
+            <td></td>
+            <td>绩效排名(公司)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>离职排名（事业部内）</td>
+            <td></td>
+            <td>离职排名（本部内）</td>
+            <td></td>
+            <td>离职排名（公司）</td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+<!-- 查询模块 结束 -->
+
+<!-- echarts 绘制图表  开始  -->
+<div class="">
+    <div id="zt-viem-topmain" class="row">
+        <div id="zt-viemzs" class="col-md-6 col-sm-12"></div>
+        <div id="zt-viemqk" class="col-md-6 col-sm-12"></div>
+    </div>
+    <div id="zt-viem-btmain" class="row">
+        <div id="zt-viem1" class="col-md-4 col-sm-12"></div>
+        <div id="zt-viem2" class="col-md-4 col-sm-12"></div>
+        <div id="zt-viem3" class="col-md-4 col-sm-12"></div>
+    </div>
+</div>
+<!-- echarts 绘制图表  结束  -->
+</div>
+</body>
+<script src="../scripts/hrdatas/jquery-1.10.1.min.js" type="text/javascript"></script>
+<script src="../scripts/hrdatas/viewzt.js" type="text/javascript"></script>
+<script src="../scripts/hrdatas/my-date-plugins2.js" type="text/javascript"></script>
+<script src="../scripts/hrdatas/bootstrap.min.js"></script>
+<script src="../scripts/hrdatas/echarts.min.js" type="text/javascript"></script> 
+</html>

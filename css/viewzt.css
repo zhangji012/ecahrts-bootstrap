@@ -1,0 +1,77 @@
+  #select-warper{ padding: 20px;min-width: 800px;}
+  #select_div{  padding: 20px 15px;font-size: 12px; border-top:solid 1px #dddddd; border-left:solid 1px #dddddd; border-right: solid 1px #dddddd; position: relative;z-index: 999; height: 75px;}
+  .form-group{ width: 200px; margin-left: 20px; display: inline-block;}
+  .slt-span{ float: left; line-height: 34px; width: 100px; text-align: right;}
+  .form-control{ width: 180px; display: inline-block;}
+  #select-tree{ display: none;/*border-left: solid 1px #dddddd;*/ background-color: #fff; border: solid 1px #dddddd; overflow: hidden;}
+  .select-tree{ width: 200px;height: 200px;overflow: scroll;padding: 10px 0px;white-space: nowrap; }
+  .slt-box{position: relative;}
+  .slt-icon{ display: inline-block;width: 12px; height: 12px; line-height: 12px; text-align: center; background-color: rgb(55,60,100); color: #fff;  margin-right: 5px;}
+  .slt-line{position: absolute;top: 8px; bottom: 0px;border-left:dotted 1px #ccc;}
+  .box-line{ position: absolute; top: 8px; left: 0px; width: 12px;border-top:dotted 1px #ccc; display: inline-block; }
+  .list-box{ position: relative; min-height: 24px; cursor: pointer;}
+  .slt-main{ margin-left: 12px; font-size: 12px;}
+  .slt-main .radio-inline{ margin-top: -4px; margin-right: 5px;}
+  .slt-main .slt-box{ margin-left: 24px;}
+  .slt-main .slt-line{ top: 0px;}
+  .btn-div{ float: right; margin-right: 15px; }
+  .btn-div .btn{font-size: 12px;}
+  .slt-left{ float: left;}
+  .slt-left span:first-child{ margin-right: 50px;}
+  .table tr>td:nth-child(odd) { background-color:rgb(220,230,241);}
+  .slt-btndiv{ float: right; margin: 5px;}
+  .slt-btndiv button{ font-size: 12px; }
+  #add-input{ width: 200px; height: auto; overflow: auto; background-color: #fff; max-height: 80px;}
+  #add-input .alert{ float: left; padding: 6px;height: 32px; margin: 3px;}
+  #add-input .close{ right: -2px;}
+  .last-line{position: absolute;top: 8px; bottom: 0px;border-left:dotted 1px #ccc;}
+  .slt-main .last-line{ top: 0px;}
+  #my-date-plugin-sup-vwc{display:inline-block}
+  #select-warper .pull-left{ margin-left:40px}
+  #zt_table,#wc_table,#md_table,#kd_table{margin-bottom:0px;}
+  #select-warper td{min-width:140px;}
+  /*#my-date-plugin-sup-vzt {
+    display: inline;
+    position: relative;
+    z-index: 999;
+	}*/
+  /*.list-box .slt-box:last-child .slt-line{bottom:15px;}*/
+  /* Echarts 样式 */
+  	/*  整体 zt */
+  #zt-viemzs,#zt-viemqk,
+  #md-viemzs,#md-viemqk,#md-viem4,#md-viem5,
+  #kd-viemzs,#kd-viemqk,
+  #wc-viemzs,#wc-viemqk{
+      /*float:left; width: 600px; height: 360px; margin-bottom: 20px;*/
+      height: 360px;margin-bottom: 20px;
+      min-width: 520px;
+  }
+  #zt-viem1,#zt-viem2,#zt-viem3, 
+  #md-viem1,#md-viem2,#md-viem3,
+  #kd-viem1,#kd-viem2,#kd-viem3{
+      /*float:left;width: 400px; height: 310px;*/
+      height: 310px;margin-bottom: 20px;
+      min-width: 370px;
+  }
+ 
+  
+  @media (max-width: 360px) {
+      #zt-viemzs,#zt-viemqk,
+      #md-viemzs,#md-viemqk,
+      #kd-viemzs,#kd-viemqk,
+      #wc-viemzs,#wc-viemqk{height: 280px;}
+      
+      #zt-viem1,#zt-viem2,#zt-viem3,
+      #md-viem1,#md-viem2,#md-viem3,#md-viem4,#md-viem5,
+      #kd-viem1,#kd-viem2,#kd-viem3{height: 260px;}
+  }
+  @media (min-width: 1280px) {
+      #zt-viemzs,#zt-viemqk,
+      #md-viemzs,#md-viemqk,
+      #kd-viemzs,#kd-viemqk,
+      #wc-viemzs,#wc-viemqk{height: 400px;}
+      
+      #zt-viem1,#zt-viem2,#zt-viem3,
+      #md-viem1,#md-viem2,#md-viem3,#md-viem4,#md-viem5,
+      #kd-viem1,#kd-viem2,#kd-viem3{height: 340px;}
+  }

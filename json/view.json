@@ -1,0 +1,116 @@
+{
+	"success":true,
+	"isException":false,
+	"exception":false,
+	"limit":0,
+	"message":null,
+	"start":0,
+	"successResultValue":null,
+	"totalCount":null,
+	"viewDatas":{
+					"lossPosition":[
+										{"calendarId":"201605","compltValue":"2.00","histValue":"3.00","levelName":"接送货员","orgId":null,"orgName":null},
+										{"calendarId":"201605","compltValue":null,"histValue":"4.5","levelName":"其他","orgId":null,"orgName":null},
+										{"calendarId":"201605","compltValue":"7.50","histValue":"6.1","levelName":"管理人员","orgId":null,"orgName":null},
+										{"calendarId":"201605","compltValue":"4.32","histValue":"2.5","levelName":"理货员","orgId":null,"orgName":null},
+										{"calendarId":"201605","compltValue":"6.24","histValue":"7","levelName":"司机","orgId":null,"orgName":null},
+										{"calendarId":"201605","compltValue":null,"histValue":"1.5","levelName":"快递理货员","orgId":null,"orgName":null},
+										{"calendarId":"201605","compltValue":"1.00","histValue":"3.9","levelName":"快递员","orgId":null,"orgName":null},
+										{"calendarId":"201605","compltValue":"4.57","histValue":"4","levelName":"文职","orgId":null,"orgName":null}
+									],
+									
+					"lossPositionDistribute":null,
+					"lossPositionTrend":null,
+					"lossTrend":[	
+									{"calendarId":"201501","compltValue":null,"histValue":null,"levelName":null,"orgId":null,"orgName":null},
+									{"calendarId":"201502","compltValue":"2.46","histValue":null,"levelName":null,"orgId":null,"orgName":null},
+									{"calendarId":"201503","compltValue":"3.46","histValue":null,"levelName":null,"orgId":null,"orgName":null},
+									{"calendarId":"201504","compltValue":"5.46","histValue":null,"levelName":null,"orgId":null,"orgName":null},
+									{"calendarId":"201505","compltValue":"6.46","histValue":null,"levelName":null,"orgId":null,"orgName":null},
+									{"calendarId":"201506","compltValue":"8.46","histValue":null,"levelName":null,"orgId":null,"orgName":null},
+									{"calendarId":"201507","compltValue":"8.46","histValue":null,"levelName":null,"orgId":null,"orgName":null},		
+									{"calendarId":"201508","compltValue":null,"histValue":null,"levelName":null,"orgId":null,"orgName":null},
+									{"calendarId":"201509","compltValue":"15.46","histValue":null,"levelName":null,"orgId":null,"orgName":null},
+									{"calendarId":"201510","compltValue":"1.46","histValue":null,"levelName":null,"orgId":null,"orgName":null},
+									{"calendarId":"201511","compltValue":"3.46","histValue":null,"levelName":null,"orgId":null,"orgName":null},
+									{"calendarId":"201512","compltValue":"8.46","histValue":null,"levelName":null,"orgId":null,"orgName":null},
+									{"calendarId":"201601","compltValue":"9.46","histValue":null,"levelName":null,"orgId":null,"orgName":null},
+									{"calendarId":"201602","compltValue":null,"histValue":null,"levelName":null,"orgId":null,"orgName":null},
+									{"calendarId":"201603","compltValue":"5.46","histValue":null,"levelName":null,"orgId":null,"orgName":null},
+									{"calendarId":"201604","compltValue":"7.46","histValue":null,"levelName":null,"orgId":null,"orgName":null},
+									{"calendarId":"201605","compltValue":"2.46","histValue":null,"levelName":null,"orgId":null,"orgName":null}
+								],
+					"numberPosition":[
+										{"number1":"<1"},
+										{"number1":"1-3"},
+										{"number1":"4-9"},
+										{"number1":"10-18"},
+										{"number1":">18"}
+									],
+					"onPositionDistribute":null,
+					"rankInfo":{"calendarId":null,"deptCount":"65","deptManager":"刘建青","lossRankbb":"1","lossRankbb1":"4","lossRankgs":"1","lossRankgs1":"4","lossRanksy":"--","lossRanksy1":"--","orgId":null,"perfRank":"--"}
+				}
+}
+									
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
