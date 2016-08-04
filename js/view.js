@@ -805,7 +805,7 @@ $(document).ready(function(){
 			}
 	    });
 	    
-		//图形自适应
+		//图形自适应1
 	    window.onresize = function () {
 	    	myChartzs_vzt.resize();
 	    	myChartqk_vzt.resize();
